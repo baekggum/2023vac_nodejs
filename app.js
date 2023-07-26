@@ -35,12 +35,14 @@ const mainRouter = require('./routes/index');
 const dustRouter = require('./routes/dust');
 const userRouter = require('./routes/user');
 const newsRouter = require('./routes/news');
+const wifiRouter = require('./routes/wifi');
 
 //mainRouter로 처리
 app.use('/', mainRouter);
 app.use('/dust', dustRouter);
 app.use('/user', userRouter);
 app.use('/news', newsRouter);
+app.use('/wifi', wifiRouter);
 
 // 라우트 설정
 // app.use('/', mainRouter);
