@@ -26,13 +26,21 @@ app.set('views',__dirname+'/views');
 // template engine으로 ejs사용
 app.set('view engine', 'ejs');
 
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+//라우트 객체 생성
 //라우트 객체 생성
 const mainRouter = require('./routes/index');
 const dustRouter = require('./routes/dust');
+const userRouter = require('./routes/user');
+const newsRouter = require('./routes/news');
 
 //mainRouter로 처리
 app.use('/', mainRouter);
 app.use('/dust', dustRouter);
+app.use('/user', userRouter);
+app.use('/news', newsRouter);
 
 // 라우트 설정
 // app.use('/', mainRouter);
@@ -50,12 +58,7 @@ app.listen(PORT, function(){    // 8080으로 요청 대기
 //     res.sendFile(__dirname+'/test.html');  // req는 request정보를 저장하고 있는 객체, res는 응답을 저장할 객체
 // });
 
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
 
-//라우트 객체 생성
-const userRouter = require('./routes/user');
 
-//라우트 설정
-app.use('/user', userRouter);
+
 
