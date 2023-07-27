@@ -28,6 +28,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(express.static(__dirname+'/public'));
 
 //라우트 객체 생성
 //라우트 객체 생성
@@ -36,6 +37,8 @@ const dustRouter = require('./routes/dust');
 const userRouter = require('./routes/user');
 const newsRouter = require('./routes/news');
 const wifiRouter = require('./routes/wifi');
+const maskRouter = require('./routes/mask');
+const tfjsRouter = require('./routes/tfjs');
 
 //mainRouter로 처리
 app.use('/', mainRouter);
@@ -43,6 +46,8 @@ app.use('/dust', dustRouter);
 app.use('/user', userRouter);
 app.use('/news', newsRouter);
 app.use('/wifi', wifiRouter);
+app.use('/mask', maskRouter);
+app.use('/tfjs', tfjsRouter);
 
 // 라우트 설정
 // app.use('/', mainRouter);
